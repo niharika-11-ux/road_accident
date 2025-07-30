@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card bg-dark text-light shadow">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Predict Accident Severity</h4>
+        <form method="POST" onsubmit="this.querySelector('button').disabled=true; this.querySelector('.spinner-border').style.display='inline-block'; this.querySelector('.btn-text').style.display='none';">
+            {% for feature in features %}
+            <div class="mb-3">
+                <label class="form-label">{{ feature.replace('_',' ').title() }}</label>
+                {% if feature in dropdown_options %}
+                    <select name="{{ feature }}" class="form-select" required>
+                        <option value="">Select</option>
+                        {% for option in dropdown_options[feature] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    <input type="number" name="{{ feature }}" class="form-control" required>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button class="btn btn-success w-100 d-flex justify-content-center align-items-center" type="submit">
+                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true" style="display:none;"></span>
+                <span class="btn-text">Predict</span>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

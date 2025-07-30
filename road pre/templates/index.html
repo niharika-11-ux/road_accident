@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accident Severity Prediction</title>
+</head>
+<body>
+    <h2>Predict Road Accident Severity</h2>
+    <form action="/predict" method="POST">
+        <label>Number of Vehicles:</label>
+        <input type="number" name="number_of_vehicles" required><br><br>
+
+        <label>Number of Casualties:</label>
+        <input type="number" name="number_of_casualties" required><br><br>
+
+        <label>Speed Limit:</label>
+        <select name="speed_limit">
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
+            <option>60</option>
+            <option>70</option>
+        </select><br><br>
+
+        <label>Light Conditions:</label>
+        <select name="light_conditions">
+            <option>Daylight</option>
+            <option>Darkness - lights lit</option>
+            <option>Darkness - lights unlit</option>
+            <option>Darkness - no lighting</option>
+            <option>Darkness - lighting unknown</option>
+        </select><br><br>
+
+        <label>Weather Conditions:</label>
+        <select name="weather_conditions">
+            <option>Fine no high winds</option>
+            <option>Raining no high winds</option>
+            <option>Snowing no high winds</option>
+            <option>Fine + high winds</option>
+            <option>Raining + high winds</option>
+            <option>Snowing + high winds</option>
+            <option>Fog or mist</option>
+            <option>Other</option>
+            <option>Unknown</option>
+        </select><br><br>
+
+        <label>Road Surface Conditions:</label>
+        <select name="road_surface_conditions">
+            <option>Dry</option>
+            <option>Wet / Damp</option>
+            <option>Snow</option>
+            <option>Frost / Ice</option>
+            <option>Flood over 3cm</option>
+            <option>Oil or diesel</option>
+            <option>Mud</option>
+            <option>Unknown</option>
+        </select><br><br>
+
+        <label>Special Conditions at Site:</label>
+        <select name="special_conditions_at_site">
+            <option>None</option>
+            <option>Auto traffic signal - out</option>
+            <option>Auto signal partly defective</option>
+            <option>Road sign or marking defective</option>
+            <option>Roadworks</option>
+            <option>Road surface defective</option>
+            <option>Oil or diesel</option>
+            <option>Mud</option>
+            <option>Other</option>
+            <option>Unknown</option>
+        </select><br><br>
+
+        <label>Carriageway Hazards:</label>
+        <select name="carriageway_hazards">
+            <option>None</option>
+            <option>Involved in previous accident</option>
+            <option>On pedestrian crossing</option>
+            <option>Near pedestrian crossing</option>
+            <option>On cycle lane</option>
+            <option>Other</option>
+        </select><br><br>
+
+        <label>Urban or Rural Area:</label>
+        <select name="urban_or_rural_area">
+            <option value="1">Urban</option>
+            <option value="2">Rural</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

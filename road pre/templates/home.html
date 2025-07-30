@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container text-center" style="margin-top:30px;">
+    <h2 class="welcome-text">Welcome to Road Accident Prediction</h2>
+    
+    <p>Our app helps predict accident severity and promote safer driving.</p>
+    <div class="row mt-5">
+        <!-- Box 1 -->
+        <div class="col-md-4">
+            <div class="box box1">
+                <i class="fas fa-car-crash fa-3x icon-style"></i>
+                <h4>Why this App?</h4>
+                <p>Every year, thousands of accidents occur due to poor road conditions, bad weather,
+                    and lack of awareness. This app uses intelligent data analysis to predict
+                    the severity of potential accidents based on current conditions, helping you
+                    take precautions before it’s too late.</p>
+            </div>
+        </div>
+        <!-- Box 2 -->
+        <div class="col-md-4">
+            <div class="box box2">
+                <i class="fas fa-user-shield fa-3x icon-style"></i>
+                <h4>Our Goal</h4>
+                <p>Our mission is to promote road safety by making accident data easily understandable.
+                    Through predictive insights, we aim to spread awareness, encourage safer driving habits,
+                    and ultimately reduce road casualties.</p>
+            </div>
+        </div>
+        <!-- Box 3 -->
+        <div class="col-md-4">
+            <div class="box box3">
+                <i class="fas fa-road fa-3x icon-style"></i>
+                <h4>How it Helps</h4>
+                <p>This tool gives quick insights into the likelihood and severity of accidents in
+                    different driving conditions. It empowers drivers, policymakers, and traffic authorities
+                    with real-time information to plan better and take preventive measures.</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <button class="btn btn-warning" id="togglePrecautions">
+        Show Precautions <i class="fas fa-chevron-down"></i>
+    </button>
+    <div id="precautions" class="box box2 collapse mt-3">
+        <ul style="text-align:left; display:inline-block; padding-left:0;">
+            <li><i class="fas fa-tachometer-alt"></i> Always follow speed limits and adjust speed for weather conditions.</li>
+            <li><i class="fas fa-user-shield"></i> Wear seatbelts and helmets at all times for your safety.</li>
+            <li><i class="fas fa-cloud-rain"></i> Drive slowly during rain, fog, or snow to maintain control.</li>
+            <li><i class="fas fa-ban"></i> Never drive under the influence of alcohol or drugs.</li>
+            <li><i class="fas fa-mobile-alt"></i> Avoid using mobile phones or distractions while driving.</li>
+            <li><i class="fas fa-car-side"></i> Maintain a safe distance from other vehicles, especially on highways.</li>
+            <li><i class="fas fa-tools"></i> Regularly service your vehicle to ensure brakes, lights, and tires are working.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('togglePrecautions');
+    const precautionsBox = document.getElementById('precautions');
+
+    toggleButton.addEventListener('click', function () {
+        precautionsBox.classList.toggle('show');
+        toggleButton.innerHTML = precautionsBox.classList.contains('show')
+            ? 'Hide Precautions <i class="fas fa-chevron-up"></i>'
+            : 'Show Precautions <i class="fas fa-chevron-down"></i>';
+    });
+});
+</script>
+{% endblock %}
